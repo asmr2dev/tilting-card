@@ -1,0 +1,128 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --perspective: 1000px;
+    --rotateX: 0;
+    --rotateY: 0;
+    --angle: 10deg;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(30, 29, 29);
+}
+
+.card {
+    width: 20%;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 9/17;
+    object-fit: cover;
+    border-radius: 2rem;
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+    transition: all .5s ease-in-out;
+}
+
+.card .handle {
+    position: absolute;
+    width: calc(100%/3);
+    height: calc(100%/3);
+    z-index: 2;
+}
+
+.card .handle1 {
+    top: 0;
+    left: 0;
+}
+
+.card .handle2 {
+    top: 0;
+    left: calc(100% / 3);
+}
+
+.card .handle3 {
+    top: 0;
+    left: calc(2 * 100% / 3);
+}
+
+.card .handle4 {
+    top: calc(100%/3);
+    left: 0;
+}
+
+.card .handle5 {
+    top: calc(100%/3);
+    left: calc(100%/3);
+}
+
+.card .handle6 {
+    top: calc(100%/3);
+    left: calc(2*100%/3);
+}
+
+.card .handle7 {
+    top: calc(2*100%/3);
+    left: 0;
+}
+
+.card .handle8 {
+    top: calc(2*100%/3);
+    left: calc(100%/3);
+}
+
+.card .handle9 {
+    top: calc(2*100%/3);
+    left: calc(2*100%/3);
+}
+
+.handle1:hover ~ img {
+    --rotateX: var(--angle);
+    --rotateY: calc(-1*var(--angle))
+}
+
+.handle2:hover ~ img {
+    --rotateX: var(--angle);
+}
+
+.handle3:hover ~ img {
+    --rotateX: var(--angle);
+    --rotateY: var(--angle)
+}
+
+.handle4:hover ~ img {
+    --rotateY: calc(-1*var(--angle))
+}
+
+
+/* handle5 ----> no need to change */
+
+.handle6:hover ~ img {
+    --rotateY: var(--angle)
+}
+
+.handle7:hover ~ img {
+    --rotateX: calc(-1*var(--angle));
+    --rotateY: calc(-1*var(--angle))
+}
+
+.handle8:hover ~ img {
+    --rotateX: calc(-1*var(--angle))
+}
+
+.handle9:hover ~ img {
+    --rotateX: calc(-1*var(--angle));
+    --rotateY: var(--angle)
+}
+
+/* for soft transition you can add more handles */
+/* Have a good time *
